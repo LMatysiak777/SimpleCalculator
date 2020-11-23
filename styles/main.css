@@ -2,7 +2,11 @@ body{
     box-sizing: border-box;
     
  }
-
+ @media screen and (max-width: 500px) {
+    .calcSection {
+      width:100%;
+    }
+  }
 #calcSection {
     background-color: antiquewhite;
     width:fit-content;
