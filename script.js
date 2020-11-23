@@ -1,13 +1,11 @@
 let mainString = "";
 let lastString = "";
-let expFunctionKey = false; 
+let expFunctionKey = false;
 let expButtonKey = false;
 let result = "";
- 
 
 function buttonClick(x) {
-
-    if (x == "=") {
+  if (x == "=") {
     calculate();
   } else if (x == "DEL") {
     del();
@@ -19,23 +17,25 @@ function buttonClick(x) {
     ans();
   } else if (x == "x") {
     multiply();
-  } else if (x=="/"){
+  } else if (x == "/") {
     divide();
+  } else {
+    mainString = mainString + x;
+    refresh();
+    if ((expFunctionKey = true)) {
+      exfunctionKey = !expFunctionKey;
+      expClose();
+    }
   }
-  
-  else {mainString = mainString + x; refresh();
-  if (expFunctionKey=true){exfunctionKey=!expFunctionKey; expClose();}
-}}
+}
 
 function calculate() {
-   
-  document.getElementById("resultView").innerHTML = eval(mainString); 
-  result = (eval(mainString).toString());
-  lastString=mainString+" = "+result;
+  document.getElementById("resultView").innerHTML = eval(mainString);
+  result = eval(mainString).toString();
+  lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
-  mainString=(eval(mainString).toString());
-
-  // refresh();
+  mainString = eval(mainString).toString();
+ 
 }
 
 function del() {
@@ -46,25 +46,23 @@ function del() {
 function expOpen() {
   mainString = mainString + " **10^";
   let hideCounter = document.getElementsByClassName("hide").length;
-  alert(hideCounter);
- 
-    for (let el of document.querySelectorAll('.hide')) el.style.visibility = 'hidden';
-expFunctionKey=true;
-  
+  `qqwa`;
+
+  for (let el of document.querySelectorAll(".hide"))
+    el.style.visibility = "hidden";
+  expFunctionKey = true;
+
   refresh();
-
- alert();
- 
-
 }
 
 function expClose() {
   functionKey = true;
-  for (let el of document.querySelectorAll('.hide')) el.style.visibility = 'visible';
+  for (let el of document.querySelectorAll(".hide"))
+    el.style.visibility = "visible";
 }
 
 function refresh() {
-    document.getElementById("resultView").innerHTML= mainString;
+  document.getElementById("resultView").innerHTML = mainString;
 }
 
 function accc() {
@@ -72,18 +70,17 @@ function accc() {
   refresh();
 }
 
-function ans(){
- mainString=mainString+result;
- refresh();
+function ans() {
+  mainString = mainString + result;
+  refresh();
 }
 
-function multiply(){
-mainString=mainString+"*";
-refresh();
-
+function multiply() {
+  mainString = mainString + "*";
+  refresh();
 }
 
-function divide(){
-mainString=mainString+"/";
-refresh();
+function divide() {
+  mainString = mainString + "/";
+  refresh();
 }
