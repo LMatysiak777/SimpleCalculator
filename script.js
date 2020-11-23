@@ -5,6 +5,12 @@ let expButtonKey = false;
 let result = "";
 
 function buttonClick(x) {
+   
+     if (expFunctionKey == true) {       
+         expFunctionKey = false;
+         mainString+=x+")";
+        expClose();refresh();}  else {
+
   if (x == "=") {
     calculate();
   } else if (x == "DEL") {
@@ -20,14 +26,18 @@ function buttonClick(x) {
   } else if (x == "/") {
     divide();
   } else {
+
+    if (expFunctionKey == true) {       
+        expFunctionKey = false;
+        mainString+=")";
+       expClose();}  
+
     mainString = mainString + x;
     refresh();
-    if ((expFunctionKey = true)) {
-      exfunctionKey = !expFunctionKey;
-      expClose();
+
     }
-  }
-}
+  }}
+
 
 function calculate() {
   document.getElementById("resultView").innerHTML = eval(mainString);
@@ -44,11 +54,8 @@ function del() {
 }
 
 function expOpen() {
-  mainString = mainString + " **10^";
-  let hideCounter = document.getElementsByClassName("hide").length;
-  `qqwa`;
-
-  for (let el of document.querySelectorAll(".hide"))
+  mainString = mainString + " *(10**"; 
+for (let el of document.querySelectorAll(".hide"))
     el.style.visibility = "hidden";
   expFunctionKey = true;
 
