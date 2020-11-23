@@ -15,7 +15,7 @@ body{
 }
 
 #mainContent {
-    background-image: url(/assets/texture.jpg);
+    background-image: url(assets/texture.jpg);
     height:100vh;
 }
 
