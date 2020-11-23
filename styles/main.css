@@ -7,7 +7,7 @@ body{
     background-color: antiquewhite;
     width:fit-content;
     position:center;
-    min-width: 600px;
+    min-width: 500px;
     position:absolute;
     top:10%;
     left:10%;
@@ -15,7 +15,7 @@ body{
 }
 
 #mainContent {
-    background-image: url(/assets/texture.jpg);
+    background-image: url(/texture.jpg);
     height:100vh;
 }
 
@@ -31,7 +31,7 @@ body{
     
     width:4rem;
     height:4rem;
-    margin:1rem 0 0 1rem;
+    margin:.25rem 0 0 .25rem;
     padding: 0;
     font-size:1.75rem;
 

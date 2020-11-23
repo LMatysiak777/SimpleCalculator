@@ -3,6 +3,7 @@ let lastString = "";
 let expFunctionKey = false;
 let expButtonKey = false;
 let result = "";
+let currentChar ="";
 
 function buttonClick(x) {
    
@@ -23,15 +24,13 @@ function buttonClick(x) {
     ans();
   } else if (x == "x") {
     multiply();
-  } else if (x == "/") {
-    divide();
-  } else {
+  }  else {
 
     if (expFunctionKey == true) {       
         expFunctionKey = false;
         mainString+=")";
        expClose();}  
-
+    
     mainString = mainString + x;
     refresh();
 
@@ -84,10 +83,5 @@ function ans() {
 
 function multiply() {
   mainString = mainString + "*";
-  refresh();
-}
-
-function divide() {
-  mainString = mainString + "/";
   refresh();
 }
