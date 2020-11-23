@@ -1,10 +1,13 @@
 let mainString = "";
 let lastString = "";
-let functionKey = false; 
+let expFunctionKey = false; 
+let expButtonKey = false;
 let result = "";
+let divideSymbol="\u00f7";
 
 function buttonClick(x) {
-  if (x == "=") {
+
+    if (x == "=") {
     calculate();
   } else if (x == "DEL") {
     del();
@@ -14,8 +17,14 @@ function buttonClick(x) {
     accc();
   } else if (x == "ANS") {
     ans();
-  } else {mainString = mainString + x; refresh();
- 
+  } else if (x == "x") {
+    multiply();
+  } else if (x==divideSymbol){
+    divide();
+  }
+  
+  else {mainString = mainString + x; refresh();
+  if (expFunctionKey=true){exfunctionKey=!expFunctionKey; expClose();}
 }}
 
 function calculate() {
@@ -25,6 +34,7 @@ function calculate() {
   lastString=mainString+" = "+result;
   document.getElementById("lastResultView").innerHTML = lastString;
   mainString=(eval(mainString).toString());
+
   // refresh();
 }
 
@@ -35,8 +45,14 @@ function del() {
 
 function expOpen() {
   mainString = mainString + " **10^";
+  let hideCounter = document.getElementsByClassName("hide").length;
+  alert(hideCounter);
+ 
+    for (let el of document.querySelectorAll('.hide')) el.style.visibility = 'hidden';
+expFunctionKey=true;
+  
   refresh();
- document.getElementByClass("hide").style.display = 'none';
+
  alert();
  
 
@@ -44,6 +60,7 @@ function expOpen() {
 
 function expClose() {
   functionKey = true;
+  for (let el of document.querySelectorAll('.hide')) el.style.visibility = 'visible';
 }
 
 function refresh() {
@@ -58,4 +75,15 @@ function accc() {
 function ans(){
  mainString=mainString+result;
  refresh();
+}
+
+function multiply(){
+mainString=mainString+"*";
+refresh();
+
+}
+
+function divide(){
+mainString=mainString+"/";
+refresh();
 }
