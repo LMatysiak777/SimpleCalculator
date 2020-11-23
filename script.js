@@ -3,7 +3,7 @@ let lastString = "";
 let expFunctionKey = false; 
 let expButtonKey = false;
 let result = "";
-let divideSymbol="\u00f7";
+ 
 
 function buttonClick(x) {
 
@@ -19,7 +19,7 @@ function buttonClick(x) {
     ans();
   } else if (x == "x") {
     multiply();
-  } else if (x==divideSymbol){
+  } else if (x=="/"){
     divide();
   }
   
