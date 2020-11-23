@@ -9,8 +9,8 @@ body{
     position:center;
     min-width: 600px;
     position:absolute;
-    top:30%;
-    left:30%;
+    top:10%;
+    left:10%;
     border:1rem solid darkgray;
 }
 
