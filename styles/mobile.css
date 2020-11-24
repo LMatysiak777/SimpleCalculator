@@ -6,7 +6,7 @@ body {
   body {
     width: 100%;
     min-width: 336px;
-    max-width: 336px;
+  
   }
 
   #calcSection {
@@ -29,7 +29,7 @@ body {
     align-content: stretch;
   }
   #buttonSection button {
-    width: 4rem;
+    width: 20%  ;
     height: 4rem;
     margin: 0;
     padding: 0;
@@ -44,6 +44,10 @@ body {
     font: bold;
     word-wrap: break-word;
   }
+  hr {
+    margin: 0;
+    padding: 0;
+  }
 
   #resultView {
     max-width: 100%;
@@ -53,10 +57,7 @@ body {
     word-wrap: break-word;
   }
 
-  hr {
-    margin: 0;
-    padding: 0;
-  }
+ 
 
   #miscSection {
     font-weight: bolder;

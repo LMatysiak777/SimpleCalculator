@@ -3,54 +3,51 @@ let lastString = "";
 let expFunctionKey = false;
 let expButtonKey = false;
 let result = "";
-let currentChar ="";
+let currentChar = "";
 
 function buttonClick(x) {
-   
-     if (expFunctionKey == true) {       
-         expFunctionKey = false;
-         mainString+=x+")";
-        expClose();refresh();}  else {
-
-  if (x == "=") {
-    calculate();
-  } else if (x == "DEL") {
-    del();
-  } else if (x == "EXP") {
-    expOpen();
-  } else if (x == "AC") {
-    accc();
-  } else if (x == "ANS") {
-    ans();
-  } else if (x == "x") {
-    multiply();
-//   UTF8 CONVERSION
-  } else if (x == "\u03a0") {
-    addPi();
-   } else if (x=="POW") {
-    powering();
-    }
-  
-  else {
-
-    if (expFunctionKey == true) {       
-        expFunctionKey = false;
-        mainString+=")";
-       expClose();}  
-    
-    mainString = mainString + x;
+  if (expFunctionKey == true) {
+    expFunctionKey=!expFunctionKey;
+    mainString += x + ")";
+    expClose();
     refresh();
+  } else {
+    if (x == "=") {
+      calculate();
+    } else if (x == "DEL") {
+      del();
+    } else if (x == "EXP") {
+      expOpen();
+    } else if (x == "AC") {
+      accc();
+    } else if (x == "ANS") {
+      ans();
+    } else if (x == "x") {
+      multiply();
+      //   UTF8 CONVERSION
+    } else if (x == "\u03a0") {
+      addPi();
+    } else if (x == "POW") {
+      powering();
+    } else {
+      if (expFunctionKey == true) {
+        expFunctionKey = !expFunctionKey;
+        mainString += ")";
+        expClose();
+      }
 
+      mainString = mainString + x;
+      refresh();
     }
-  }}
-
+  }
+}
 
 function calculate() {
   document.getElementById("resultView").innerHTML = "...awaiting input";
   result = eval(mainString).toString();
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
-  document.getElementById("ansValue").innerHTML = "ANS value= "+result;
+  document.getElementById("ansValue").innerHTML = "ANS value= " + result;
   mainString = "";
 }
 
@@ -60,8 +57,8 @@ function del() {
 }
 
 function expOpen() {
-  mainString = mainString + " *(10**"; 
-for (let el of document.querySelectorAll(".hide"))
+  mainString = mainString + " *(10**";
+  for (let el of document.querySelectorAll(".hide"))
     el.style.visibility = "hidden";
   expFunctionKey = true;
 
@@ -94,12 +91,11 @@ function multiply() {
 }
 
 function addPi() {
- mainString += "Math.PI";
- refresh();
+  mainString += "Math.PI";
+  refresh();
 }
 
 function powering() {
- mainString += "^";
- refresh();
+  mainString += "^";
+  refresh();
 }
- 
