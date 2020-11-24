@@ -24,7 +24,14 @@ function buttonClick(x) {
     ans();
   } else if (x == "x") {
     multiply();
-  }  else {
+//   UTF8 CONVERSION
+  } else if (x == "\u03a0") {
+    addPi();
+   } else if (x=="POW") {
+    powering();
+    }
+  
+  else {
 
     if (expFunctionKey == true) {       
         expFunctionKey = false;
@@ -39,10 +46,14 @@ function buttonClick(x) {
 
 
 function calculate() {
-  document.getElementById("resultView").innerHTML = eval(mainString);
+  document.getElementById("resultView").innerHTML = "...awaiting input";
   result = eval(mainString).toString();
+  if(typeof(eval(mainString))==undefined){
+    document.getElementById("resultView").innerHTML = "input error";  
+  }
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
+  document.getElementById("ansValue").innerHTML = "ANS value= "+result;
   mainString = "";
 }
 
@@ -72,7 +83,7 @@ function refresh() {
 
 function accc() {
   mainString = "";
-  refresh();
+  document.getElementById("resultView").innerHTML = "...awaiting input";
 }
 
 function ans() {
@@ -83,4 +94,14 @@ function ans() {
 function multiply() {
   mainString = mainString + "*";
   refresh();
+}
+
+function addPi() {
+ mainString += "Math.PI";
+ refresh();
+}
+
+function powering() {
+ mainString += "^";
+ refresh();
 }

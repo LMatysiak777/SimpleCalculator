@@ -25,7 +25,7 @@ body {
   #buttonSection {
     margin: 0;
     padding: 0;
-    font-size : 0;
+    font-size: 0;
   }
   #buttonSection button {
     width: 4rem;
@@ -34,8 +34,7 @@ body {
     padding: 0;
     font-size: 1.75rem;
     border-radius: 0;
-    border: solid black .1rem;
-    
+    border: solid black 0.1rem;
   }
 
   .jumbotron {
@@ -47,5 +46,19 @@ body {
     font-size: 2rem;
     color: red;
     font: bold;
+  }
+  #miscSection {
+    font-weight: bolder;
+  }
+
+  #mobileVersion {
+    text-align: left;
+    width: 40%;
+    display: none;
+  }
+
+  #desktopVersion {
+    text-align: left;
+    width: 40%;
   }
 }

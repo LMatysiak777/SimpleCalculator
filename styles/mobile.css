@@ -5,33 +5,28 @@ body {
 @media screen and (max-width: 768px) {
   body {
     width: 100%;
-    min-width: 536px;
-  }
-  .calcSection {
-   
+    min-width: 336px;
+    max-width: 336px;
   }
 
   #calcSection {
     background-color: antiquewhite;
-    width:100%;
-    
-   
+    width: 100%;
+
     align-content: center;
-    border: .5rem solid black;
+    border: 0.5rem solid black;
   }
 
   #mainContent {
-    background-image: url(/texture.jpg); 
+    background-image: url(/texture.jpg);
     height: 100vh;
-    
   }
 
   #buttonSection {
-    margin-left:0%;
+    margin-left: 0%;
     padding: 0;
     font-size: 0;
     align-content: stretch;
-     
   }
   #buttonSection button {
     width: 4rem;
@@ -40,13 +35,21 @@ body {
     padding: 0;
     font-size: 1.75rem;
     border-radius: 0;
-    border: solid black .1rem;
-    
-    
+    border: solid black 0.1rem;
+  }
+  .double {
+    border-top: none !important;
+    border-bottom: none !important;
   }
 
   .jumbotron {
     height: 15rem;
+    width: inherit;
+    
+  }
+
+  #resultview {
+    font-size: 1rem !important;
   }
 
   #lastResultView {
@@ -54,5 +57,19 @@ body {
     font-size: 2rem;
     color: red;
     font: bold;
+  }
+  #miscSection {
+    font-weight: bolder;
+  }
+
+  #mobileVersion {
+    text-align: left;
+    width: 40%;
+  }
+
+  #desktopVersion {
+    text-align: left;
+    width: 40%;
+    display: none;
   }
 }
