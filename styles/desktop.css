@@ -1,5 +1,6 @@
 body {
   box-sizing: border-box;
+  height:100%;
 }
 /* DESKTOP RULES */
 @media screen and (min-width: 768px) {
@@ -29,7 +30,7 @@ body {
     font-size: 0;
   }
   #buttonSection button {
-    width: 6rem;
+    width: 20%;
     height: 6rem;
     margin: 0;
     padding: 0;
