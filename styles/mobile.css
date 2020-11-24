@@ -19,7 +19,7 @@ body {
 
   #mainContent {
     background-image: url(/texture.jpg);
-    height: 100vh;
+    height: 100%;
   }
 
   #buttonSection {
@@ -37,27 +37,27 @@ body {
     border-radius: 0;
     border: solid black 0.1rem;
   }
-  .double {
-    border-top: none !important;
-    border-bottom: none !important;
-  }
-
-  .jumbotron {
-    height: 15rem;
-    width: inherit;
-    
-  }
-
-  #resultview {
-    font-size: 1rem !important;
-  }
-
   #lastResultView {
-    padding: 0;
-    font-size: 2rem;
+    padding: 0.25rem;
+    font-size: 1.5rem;
     color: red;
     font: bold;
+    word-wrap: break-word;
   }
+
+  #resultView {
+    max-width: 100%;
+    font-size: 2rem;
+    padding: 0.25rem;
+    height: 100px;
+    word-wrap: break-word;
+  }
+
+  hr {
+    margin: 0;
+    padding: 0;
+  }
+
   #miscSection {
     font-weight: bolder;
   }

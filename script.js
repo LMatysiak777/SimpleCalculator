@@ -48,9 +48,6 @@ function buttonClick(x) {
 function calculate() {
   document.getElementById("resultView").innerHTML = "...awaiting input";
   result = eval(mainString).toString();
-  if(typeof(eval(mainString))==undefined){
-    document.getElementById("resultView").innerHTML = "input error";  
-  }
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
   document.getElementById("ansValue").innerHTML = "ANS value= "+result;
@@ -105,3 +102,4 @@ function powering() {
  mainString += "^";
  refresh();
 }
+ 
