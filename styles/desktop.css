@@ -1,11 +1,11 @@
 body {
   box-sizing: border-box;
-  height:100%;
+ 
 }
 /* DESKTOP RULES */
 @media screen and (min-width: 768px) {
   .calcSection {
-    width: 100%;
+    
   }
 
   #calcSection {
@@ -15,7 +15,7 @@ body {
     position: absolute;
     top: 10%;
     left: 5%;
-    max-width: 800px ;
+    max-width: 800px;
     border: 1rem solid darkgray;
   }
 
@@ -37,6 +37,12 @@ body {
     font-size: 1.75rem;
     border-radius: 0;
     border: solid black 0.1rem;
+  }
+  #double1 {
+    border-bottom: none !important;
+  }
+  #double2 {
+    border-top: none !important;
   }
   #lastResultView {
     padding: 0.25rem;

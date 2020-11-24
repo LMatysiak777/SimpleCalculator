@@ -96,6 +96,6 @@ function addPi() {
 }
 
 function powering() {
-  mainString += "^";
+  mainString += "**";
   refresh();
 }
