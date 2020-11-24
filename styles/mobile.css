@@ -1,0 +1,58 @@
+body {
+  box-sizing: border-box;
+}
+/* MOBILE RULES */
+@media screen and (max-width: 768px) {
+  body {
+    width: 100%;
+    min-width: 336px;
+  }
+  .calcSection {
+   
+  }
+
+  #calcSection {
+    background-color: antiquewhite;
+    width:100%;
+    
+   
+    align-content: center;
+    border: .5rem solid black;
+  }
+
+  #mainContent {
+    background-image: url(/texture.jpg); 
+    height: 100vh;
+    
+  }
+
+  #buttonSection {
+    margin-left:0%;
+    padding: 0;
+    font-size: 0;
+    align-content: stretch;
+     
+  }
+  #buttonSection button {
+    width: 4rem;
+    height: 4rem;
+    margin: 0;
+    padding: 0;
+    font-size: 1.75rem;
+    border-radius: 0;
+    border: solid black .1rem;
+    
+    
+  }
+
+  .jumbotron {
+    height: 15rem;
+  }
+
+  #lastResultView {
+    padding: 0;
+    font-size: 2rem;
+    color: red;
+    font: bold;
+  }
+}

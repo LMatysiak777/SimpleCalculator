@@ -43,7 +43,6 @@ function calculate() {
   result = eval(mainString).toString();
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
-  //   mainString = eval(mainString).toString();
   mainString = "";
 }
 
