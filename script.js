@@ -2,43 +2,46 @@ let mainString = "";
 let lastString = "";
 let expFunctionKey = false;
 let expButtonKey = false;
+let hideCalcButton = false;
 let result = "";
 let currentChar = "";
+// let buttonValue1 = [
+//   "DEL",
+//   del,
+//   "EXP",
+//   expOpen,
+//   "AC",
+//   accc,
+//   "ANS",
+//   ans,
+//   "x",
+//   multiply,
+//   "\u03a0",
+//   addPi,
+//   "POW",
+//   powering,
+//   "=",
+//   calculate,
+// ];
+let buttonValue2 = {
+  DEL: del,
+  EXP: expOpen,
+  AC: accc,
+  ANS: ans,
+  x: multiply,
+  "\u03a0": addPi,
+  POW: powering,
+  "=": calculate,
+};
 
 function buttonClick(x) {
-  if (expFunctionKey == true) {
-    expFunctionKey=!expFunctionKey;
-    mainString += x + ")";
-    expClose();
-    refresh();
+  if (buttonValue2.hasOwnProperty(x) == true) {
+    buttonValue2[x]();
+  } else if (expFunctionKey) {
+    checkExpKey(x);
   } else {
-    if (x == "=") {
-      calculate();
-    } else if (x == "DEL") {
-      del();
-    } else if (x == "EXP") {
-      expOpen();
-    } else if (x == "AC") {
-      accc();
-    } else if (x == "ANS") {
-      ans();
-    } else if (x == "x") {
-      multiply();
-      //   UTF8 CONVERSION
-    } else if (x == "\u03a0") {
-      addPi();
-    } else if (x == "POW") {
-      powering();
-    } else {
-      if (expFunctionKey == true) {
-        expFunctionKey = !expFunctionKey;
-        mainString += ")";
-        expClose();
-      }
-
-      mainString = mainString + x;
-      refresh();
-    }
+    mainString = mainString + x;
+    refresh();
   }
 }
 
@@ -61,7 +64,6 @@ function expOpen() {
   for (let el of document.querySelectorAll(".hide"))
     el.style.visibility = "hidden";
   expFunctionKey = true;
-
   refresh();
 }
 
@@ -97,5 +99,12 @@ function addPi() {
 
 function powering() {
   mainString += "**";
+  refresh();
+}
+
+function checkExpKey(x) {
+  mainString += x + ")";
+  expFunctionKey = !expFunctionKey;
+  expClose();
   refresh();
 }
