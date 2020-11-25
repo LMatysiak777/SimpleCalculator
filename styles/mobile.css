@@ -37,6 +37,17 @@ body {
     border-radius: 0;
     border: solid black 0.1rem;
   }
+  #buttonSection button:disabled {
+    width: 20%;
+    height: 4rem;
+    margin: 0;
+    padding: 0;
+    font-size: 1.75rem;
+    border-radius: 0;
+    border: solid black 0.1rem;
+    background-color: grey;
+    color: white;
+  }
   #double1 {
     border-bottom: none !important;
   }
@@ -70,6 +81,7 @@ body {
   #mobileVersion {
     text-align: left;
     width: 40%;
+    
   }
 
   #desktopVersion {
@@ -77,4 +89,10 @@ body {
     width: 40%;
     display: none;
   }
+} 
+/* input :invalid{
+  background-color: red;;
+} */
+form :invalid{
+  background-color: red;;
 }

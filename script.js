@@ -5,25 +5,7 @@ let expButtonKey = false;
 let hideCalcButton = false;
 let result = "";
 let currentChar = "";
-// let buttonValue1 = [
-//   "DEL",
-//   del,
-//   "EXP",
-//   expOpen,
-//   "AC",
-//   accc,
-//   "ANS",
-//   ans,
-//   "x",
-//   multiply,
-//   "\u03a0",
-//   addPi,
-//   "POW",
-//   powering,
-//   "=",
-//   calculate,
-// ];
-let buttonValue2 = {
+let buttonValue = {
   DEL: del,
   EXP: expOpen,
   AC: accc,
@@ -35,13 +17,16 @@ let buttonValue2 = {
 };
 
 function buttonClick(x) {
-  if (buttonValue2.hasOwnProperty(x) == true) {
-    buttonValue2[x]();
+  currentChar=x;
+  checkCurrentChar(x);
+  if (buttonValue.hasOwnProperty(x) == true) {
+    buttonValue[x]();
   } else if (expFunctionKey) {
     checkExpKey(x);
   } else {
     mainString = mainString + x;
     refresh();
+
   }
 }
 
@@ -62,7 +47,7 @@ function del() {
 function expOpen() {
   mainString = mainString + " *(10**";
   for (let el of document.querySelectorAll(".hide"))
-    el.style.visibility = "hidden";
+  el.style.visibility = "hidden";
   expFunctionKey = true;
   refresh();
 }
@@ -108,3 +93,16 @@ function checkExpKey(x) {
   expClose();
   refresh();
 }
+
+function checkCurrentChar(x) {
+  let elems = document.getElementsByClassName("hide2");
+if (["+","-","x","/","POW"].includes(x)) { 
+    for(var i = 0; i < elems.length; i++) {
+      elems[i].disabled = true;
+    }}
+  else {
+    for(var i = 0; i < elems.length; i++) {
+      elems[i].disabled = false;
+    }
+}}
+
