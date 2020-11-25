@@ -2,6 +2,18 @@ body {
   box-sizing: border-box;
 }
 /* MOBILE RULES */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   body {
     width: 100%;
@@ -90,9 +102,4 @@ body {
     display: none;
   }
 } 
-/* input :invalid{
-  background-color: red;;
-} */
-form :invalid{
-  background-color: red;;
-}
+  

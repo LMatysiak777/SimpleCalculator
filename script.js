@@ -17,7 +17,6 @@ let buttonValue = {
 };
 
 function buttonClick(x) {
-  currentChar=x;
   checkCurrentChar(x);
   if (buttonValue.hasOwnProperty(x) == true) {
     buttonValue[x]();
@@ -31,12 +30,15 @@ function buttonClick(x) {
 }
 
 function calculate() {
-  document.getElementById("resultView").innerHTML = "...awaiting input";
+   
+  
   result = eval(mainString).toString();
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
   document.getElementById("ansValue").innerHTML = "ANS value= " + result;
   mainString = "";
+  document.getElementById("resultView").innerHTML = "...awaiting input";
+  refresh();
 }
 
 function del() {
@@ -95,7 +97,7 @@ function checkExpKey(x) {
 }
 
 function checkCurrentChar(x) {
-  let elems = document.getElementsByClassName("hide2");
+let elems = document.getElementsByClassName("hide2");
 if (["+","-","x","/","POW"].includes(x)) { 
     for(var i = 0; i < elems.length; i++) {
       elems[i].disabled = true;
