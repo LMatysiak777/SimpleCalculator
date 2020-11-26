@@ -118,22 +118,14 @@ function syntaxCheck(x) {
   }
   try {
     eval(mainString);
-<<<<<<< HEAD
   } catch (x) {
  
     mainString = "SYNTAX ERROR";
-=======
-  }
-  catch(x) {
-    mainString="SYNTAX ERROR";
-    
->>>>>>> 1568f5f0fda5e2554c13ac7d4387c6c2907edc1a
     refresh();
     mainString="" ;
   }
   return false;
 }
-<<<<<<< HEAD
 
 function syntaxCheck2() {
   try {
@@ -146,6 +138,3 @@ function syntaxCheck2() {
     alert("EXPRESSION CHECK COMPLETE");
   }
 }
-=======
- 
->>>>>>> 1568f5f0fda5e2554c13ac7d4387c6c2907edc1a
