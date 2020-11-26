@@ -5,7 +5,7 @@ let mainString = "",
   hideCalcButton = false,
   result = "",
   currentChar = "",
-  buttonValue = {
+  buttonValue =  {
     DEL: del,
     EXP: expOpen,
     AC: accc,
@@ -14,8 +14,7 @@ let mainString = "",
     "\u03a0": addPi,
     POW: powering,
     "=": calculate,
-    "CHK":syntaxCheck2,
-  };
+     };
 
 function buttonClick(x) {
   checkCurrentChar(x);
@@ -31,10 +30,7 @@ function buttonClick(x) {
 
 function calculate() {
  
-  if (syntaxCheck(mainString)) {
-    document.getElementById("resultView").innerHTML = "SYNTAX ERROR";
-    return;
-  }
+  syntaxCheck();
   result = eval(mainString).toString();
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
@@ -42,7 +38,7 @@ function calculate() {
   mainString = "";
   document.getElementById("resultView").innerHTML = "...awaiting input";
   refresh();
-}
+} 
 
 function del() {
   mainString = mainString.slice(0, -1);
@@ -113,35 +109,16 @@ function checkCurrentChar(x) {
 }
 
 function syntaxCheck(x) {
-  //alert("enter syntax function");
-  let wrongSyntax = [""];
-  if (wrongSyntax.includes(x)) return true;
-  // let error = typeof eval(x);
-  // if (error==undefined) return true;
-
-  var validCode = 1;
+  let emptySyntax = [""];
+  let errorMessage = "SYNTAX ERROR";
+  if (emptySyntax.includes(x)) {mainString=errorMessage;refresh();return};
   try {
-    eval(x); /* Code test */
-  } catch (e) {
-    if (e instanceof SyntaxError) {
-      validCode = 0;
-      console.warn("error");
-    }
-  } finally {
-    if (validCode) {
-      return;
-    }
+    eval(mainString);
   }
-
-  alert("syntax OK");
+  catch(x) {
+    mainString="SYNTAX ERROR";
+    refresh();
+  }
   return false;
 }
-
-function syntaxCheck2(){
-try {
-  eval(mainString);
-}
-catch(err) {
-  alert(err);
-}
-}
+ 
