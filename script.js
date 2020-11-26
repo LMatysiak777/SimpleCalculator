@@ -1,20 +1,21 @@
-let mainString = "";
-let lastString = "";
-let expFunctionKey = false;
-let expButtonKey = false;
-let hideCalcButton = false;
-let result = "";
-let currentChar = "";
-let buttonValue = {
-  DEL: del,
-  EXP: expOpen,
-  AC: accc,
-  ANS: ans,
-  x: multiply,
-  "\u03a0": addPi,
-  POW: powering,
-  "=": calculate,
-};
+let mainString = "",
+  lastString = "",
+  expFunctionKey = false,
+  expButtonKey = false,
+  hideCalcButton = false,
+  result = "",
+  currentChar = "",
+  buttonValue = {
+    DEL: del,
+    EXP: expOpen,
+    AC: accc,
+    ANS: ans,
+    x: multiply,
+    "\u03a0": addPi,
+    POW: powering,
+    "=": calculate,
+    "CHK":syntaxCheck2,
+  };
 
 function buttonClick(x) {
   checkCurrentChar(x);
@@ -25,14 +26,15 @@ function buttonClick(x) {
   } else {
     mainString = mainString + x;
     refresh();
-
   }
 }
 
 function calculate() {
- 
   alert(typeof eval(mainString));
-  if (syntaxCheck(mainString)) {document.getElementById("resultView").innerHTML = "SYNTAX ERROR";return;}
+  if (syntaxCheck(mainString)) {
+    document.getElementById("resultView").innerHTML = "SYNTAX ERROR";
+    return;
+  }
   result = eval(mainString).toString();
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
@@ -40,7 +42,6 @@ function calculate() {
   mainString = "";
   document.getElementById("resultView").innerHTML = "...awaiting input";
   refresh();
- 
 }
 
 function del() {
@@ -51,7 +52,7 @@ function del() {
 function expOpen() {
   mainString = mainString + " *(10**";
   for (let el of document.querySelectorAll(".hide"))
-  el.style.visibility = "hidden";
+    el.style.visibility = "hidden";
   expFunctionKey = true;
   refresh();
 }
@@ -99,28 +100,48 @@ function checkExpKey(x) {
 }
 
 function checkCurrentChar(x) {
-let elems = document.getElementsByClassName("hide2");
-if (["+","-","x","/","POW"].includes(x)) { 
-    for(var i = 0; i < elems.length; i++) {
+  let elems = document.getElementsByClassName("hide2");
+  if (["+", "-", "x", "/", "POW"].includes(x)) {
+    for (var i = 0; i < elems.length; i++) {
       elems[i].disabled = true;
-    }}
-  else {
-    for(var i = 0; i < elems.length; i++) {
+    }
+  } else {
+    for (var i = 0; i < elems.length; i++) {
       elems[i].disabled = false;
     }
-}}
+  }
+}
 
-function syntaxCheck(x){
-alert("enter syntax function");
-let wrongSyntax = ["",]; 
-if (wrongSyntax.includes(x)) return true;
-// let error = typeof eval(x);
-// if (error==undefined) return true;  
- 
-alert("syntax OK");
- 
-// if (typeof eval(x)===number) return true;
- 
-return false;
- 
+function syntaxCheck(x) {
+  alert("enter syntax function");
+  let wrongSyntax = [""];
+  if (wrongSyntax.includes(x)) return true;
+  // let error = typeof eval(x);
+  // if (error==undefined) return true;
+
+  var validCode = 1;
+  try {
+    eval(x); /* Code test */
+  } catch (e) {
+    if (e instanceof SyntaxError) {
+      validCode = 0;
+      console.warn("error");
+    }
+  } finally {
+    if (validCode) {
+      return;
+    }
+  }
+
+  alert("syntax OK");
+  return false;
+}
+
+function syntaxCheck2(){
+try {
+  eval(mainString);
+}
+catch(err) {
+  alert(err);
+}
 }
