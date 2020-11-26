@@ -50,15 +50,13 @@ body {
     border: solid black 0.1rem;
   }
   #buttonSection button:disabled {
-    width: auto;
+    width: 20%;
     height: 4rem;
     margin: 0;
     padding: 0;
     font-size: 1.75rem;
     border-radius: 0;
     border: solid black 0.1rem;
-    background-color: grey;
-    color: white;
   }
 
   #row {
@@ -66,6 +64,12 @@ body {
   }
   #row1 {
     width: 80%;
+  }
+
+  #row1 button:disabled {
+     
+      width: 25%;
+    }
   }
   #row2 {
     width: 10%;
