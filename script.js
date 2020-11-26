@@ -30,7 +30,7 @@ function buttonClick(x) {
 }
 
 function calculate() {
-  alert(typeof eval(mainString));
+ 
   if (syntaxCheck(mainString)) {
     document.getElementById("resultView").innerHTML = "SYNTAX ERROR";
     return;
