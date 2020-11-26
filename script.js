@@ -30,8 +30,9 @@ function buttonClick(x) {
 }
 
 function calculate() {
-   
-  
+ 
+  alert(typeof eval(mainString));
+  if (syntaxCheck(mainString)) {document.getElementById("resultView").innerHTML = "SYNTAX ERROR";return;}
   result = eval(mainString).toString();
   lastString = mainString + " = " + result;
   document.getElementById("lastResultView").innerHTML = lastString;
@@ -39,6 +40,7 @@ function calculate() {
   mainString = "";
   document.getElementById("resultView").innerHTML = "...awaiting input";
   refresh();
+ 
 }
 
 function del() {
@@ -66,7 +68,7 @@ function refresh() {
 
 function accc() {
   mainString = "";
-  document.getElementById("resultView").innerHTML = "...awaiting input";
+  refresh();
 }
 
 function ans() {
@@ -108,3 +110,17 @@ if (["+","-","x","/","POW"].includes(x)) {
     }
 }}
 
+function syntaxCheck(x){
+alert("enter syntax function");
+let wrongSyntax = ["",]; 
+if (wrongSyntax.includes(x)) return true;
+// let error = typeof eval(x);
+// if (error==undefined) return true;  
+ 
+alert("syntax OK");
+ 
+// if (typeof eval(x)===number) return true;
+ 
+return false;
+ 
+}
