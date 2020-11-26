@@ -70,7 +70,7 @@ body {
      
       width: 25%;
     }
-  }
+  
   #row2 {
     width: 10%;
   }
@@ -78,7 +78,7 @@ body {
     width: 25%;
   }
   #row2 button {
-    width: 20% !important;
+    width: 20%  
   }
 
   #buttonSection .double1 {
