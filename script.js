@@ -113,7 +113,7 @@ function checkCurrentChar(x) {
 }
 
 function syntaxCheck(x) {
-  alert("enter syntax function");
+  //alert("enter syntax function");
   let wrongSyntax = [""];
   if (wrongSyntax.includes(x)) return true;
   // let error = typeof eval(x);
