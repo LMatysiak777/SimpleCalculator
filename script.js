@@ -117,7 +117,9 @@ function syntaxCheck(x) {
   }
   catch(x) {
     mainString="SYNTAX ERROR";
+    
     refresh();
+    mainString="" ;
   }
   return false;
 }
